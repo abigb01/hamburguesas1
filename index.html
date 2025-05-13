@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BurgerMaster - Las mejores hamburguesas</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="home.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -34,7 +36,7 @@
             <h2>Nuestras Especialidades</h2>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="imagenes/clasica.jpg" alt="Hamburguesa Clásica">
+                    <img src="clasica.jpeg" alt="Hamburguesa Clásica">
                     <h3>Clásica</h3>
                     <p>Carne 100% res, queso cheddar, lechuga, tomate y salsa especial</p>
                     <span class="price">$175 mx</span>
@@ -42,7 +44,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <img src="imagenes/bbq.jpeg" alt="Hamburguesa BBQ">
+                    <img src="bbq.jpeg" alt="Hamburguesa BBQ">
                     <h3>BBQ</h3>
                     <p>Carne angus, bacon crujiente, cebolla caramelizada y salsa BBQ</p>
                     <span class="price">$215 mx</span>
@@ -50,7 +52,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <img src="imagenes/picante.jpeg" alt="Hamburguesa Picante">
+                    <img src="picante.jpeg" alt="Hamburguesa Picante">
                     <h3>Picante</h3>
                     <p>Doble carne, jalapeños, queso pepper jack y salsa picante</p>
                     <span class="price">$195 mx</span>
@@ -58,7 +60,7 @@
                 </div>
                 
                 <div class="menu-item">
-                    <img src="imagenes/vegetariana.jpeg" alt="Hamburguesa Vegetariana">
+                    <img src="vegetariana.jpeg" alt="Hamburguesa Vegetariana">
                     <h3>Vegetariana</h3>
                     <p>Portobello, queso de cabra, espinaca y mayonesa de ajo</p>
                     <span class="price">$200 mx</span>
@@ -72,7 +74,7 @@
         <div class="container">
             <h2>Acerca de Nosotros</h2>
             <div class="about-content">
-                <img src="imagenes/sitio.jpg" alt="Nuestro local">
+                <img src="sitio.jpg" alt="Nuestro local">
                 <div class="about-text">
                     <p>BurgerMaster nació en 2025 con la pasión por crear las mejores hamburguesas artesanales hechas con amor. Utilizamos solo ingredientes frescos y de proveedores locales.</p>
                     <p>Nuestro chef ejecutivo Levi prepara cada platillo con dedicación para ofrecerte la mejor experiencia gastronómica.</p>
@@ -115,7 +117,9 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/home.js"></script>
+    <script src="main.js"></script>
+    <script src="home.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </body>
 </html>
