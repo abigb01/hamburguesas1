@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
         doc.text('BurgerMaster', 105, 20, { align: 'center' });
         doc.setFontSize(12);
         doc.text('Calle Rubí, Geo Villas 123, Tizayuca', 105, 28, { align: 'center' });
-        doc.text(`Fecha: ${date}`, 105, 35, { align: 'center' });
+        doc.text(Fecha: ${date}, 105, 35, { align: 'center' });
         
         // Línea divisoria
         doc.line(20, 40, 190, 40);
@@ -285,8 +285,8 @@ document.addEventListener('DOMContentLoaded', function() {
         let y = 60;
         cart.forEach(item => {
             doc.setFontSize(10);
-            doc.text(`${item.quantity}x ${item.name}`, 20, y);
-            doc.text(`$${item.totalPrice.toFixed(2)}`, 180, y, { align: 'right' });
+            doc.text(${item.quantity}x ${item.name}, 20, y);
+            doc.text($${item.totalPrice.toFixed(2)}, 180, y, { align: 'right' });
             y += 7;
         });
         
@@ -294,10 +294,10 @@ document.addEventListener('DOMContentLoaded', function() {
         doc.setFontSize(12);
         doc.line(20, y+5, 190, y+5);
         doc.text('Total:', 20, y+15);
-        doc.text(`$${total.toFixed(2)}`, 180, y+15, { align: 'right' });
+        doc.text($${total.toFixed(2)}, 180, y+15, { align: 'right' });
         
         // Método de pago
-        doc.text(`Método de pago: ${paymentMethod === 'tarjeta' ? 'Tarjeta' : 'Efectivo'}`, 20, y+25);
+        doc.text(Método de pago: ${paymentMethod === 'tarjeta' ? 'Tarjeta' : 'Efectivo'}, 20, y+25);
         
         // Pie de página
         doc.setFontSize(10);
@@ -305,7 +305,7 @@ document.addEventListener('DOMContentLoaded', function() {
         doc.text('Vuelva pronto', 105, y+40, { align: 'center' });
         
         // Guardar PDF
-        doc.save(`Ticket_BurgerMaster_${date.replace(/[/,:]/g, '-')}.pdf`);
+        doc.save(Ticket_BurgerMaster_${date.replace(/[/,:]/g, '-')}.pdf);
     }
 
     // ========== FUNCIONES AUXILIARES ==========
@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const times = ['20-30 min', '25-35 min', '30-40 min'];
         const element = document.getElementById('delivery-time');
         if (element) {
-            element.textContent = `⏱ Entrega estimada: ${times[Math.floor(Math.random() * times.length)]}`;
+            element.textContent = ⏱ Entrega estimada: ${times[Math.floor(Math.random() * times.length)]};
         }
     }
 
@@ -337,14 +337,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if (cartCounter) {
             const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCounter.innerHTML = `🛒 ${itemCount} | $${cart.reduce((sum, item) => sum + item.totalPrice, 0).toFixed(2)}`;
+            cartCounter.innerHTML = 🛒 ${itemCount} | $${cart.reduce((sum, item) => sum + item.totalPrice, 0).toFixed(2)};
             cartCounter.onclick = showCartModal;
         }
     }
 });
 Aquí tienes el código JavaScript completo para manejar la interacción del modal de pago, junto con algunos ajustes finales al CSS:
 
-```javascript
+javascript
 // Selección de elementos del DOM
 const orderButtons = document.querySelectorAll('.order-btn');
 const paymentModal = document.querySelector('.payment-options');
@@ -446,11 +446,11 @@ paymentModal.addEventListener('click', (e) => {
 
 // Inicializar botón de proceder desactivado
 resetPaymentMethods();
-```
+
 
 ## CSS Adicional para los efectos JavaScript:
 
-```css
+css
 /* Añadir al final de tu CSS existente */
 
 /* Efecto de carga */
@@ -495,11 +495,11 @@ resetPaymentMethods();
 .cash-payment .method-icon .fa-money-bill-wave {
     color: white;
 }
-```
+
 
 ## HTML de ejemplo para la estructura del modal:
 
-```html
+html
 <div class="payment-options">
     <div class="payment-container">
         <button class="close-btn">&times;</button>
@@ -541,30 +541,3 @@ resetPaymentMethods();
         </div>
     </div>
 </div>
-```
-
-## Características implementadas:
-
-1. **Interacción completa del modal**:
-   - Abre al hacer clic en cualquier botón "Ordenar"
-   - Cierra al hacer clic en la X, fuera del modal o en "Seguir comprando"
-
-2. **Selección de método de pago**:
-   - Efectos visuales al seleccionar tarjeta o efectivo
-   - Validación para evitar pagos sin método seleccionado
-
-3. **Proceso de pago simulado**:
-   - Animación de carga durante el procesamiento
-   - Mensajes de confirmación diferentes para cada método
-
-4. **Efectos visuales mejorados**:
-   - Animación de pulso al seleccionar método
-   - Spinner de carga durante el procesamiento
-   - Transiciones suaves en todos los elementos
-
-Para que funcione completamente, necesitarás incluir Font Awesome para los íconos en el `<head>` de tu HTML:
-```html
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-```
-
-Este sistema proporciona una experiencia de usuario completa y atractiva para el proceso de pago, con retroalimentación visual clara en cada paso.
