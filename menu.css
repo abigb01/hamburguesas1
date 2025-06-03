@@ -185,31 +185,82 @@ body {
     color: #666;
     font-size: 0.8rem;
 }
-
-/* ===== ESTILOS PARA EL FORMULARIO DE TARJETA ===== */
-.payment-form {
-    margin-top: 20px;
+/* Ajustar las imágenes dentro de las tarjetas */
+.menu-item img {
+    width: 100%;  /* Ocupa todo el ancho del contenedor */
+    height: 200px; /* Fija la altura para evitar desajustes */
+    object-fit: cover; /* Mantiene la relación de aspecto */
+    border-radius: 8px; /* Borde redondeado para las imágenes */
 }
 
-.payment-form .form-group {
-    margin-bottom: 15px;
-}
-
-.payment-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-}
-
-.payment-form input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
+/* Estilo de los botones de compra */
+.order-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px; /* Ajuste en el tamaño del padding */
     border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-    transition: border-color 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem; /* Tamaño de fuente adecuado */
+    transition: background-color 0.3s ease;
+    width: 100%;  /* Hace que el botón ocupe todo el ancho del contenedor */
+    box-sizing: border-box; /* Asegura que el padding no desborde */
 }
 
-.payment-form input:focus {
-    border-color: var(--primary-color);
+.order-btn:hover {
+    background-color: var(--primary-color);
+}
+
+/* Ajustar el espaciado entre los elementos */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px; /* Ajusta el espacio entre las tarjetas */
+}
+
+/* Margen entre los elementos */
+.menu-item {
+    margin-bottom: 20px; /* Agrega margen en la parte inferior para no tener todo pegado */
+}
+
+/* Ajustar el espaciado dentro de la tarjeta */
+.item-info {
+    margin-top: 10px;
+}
+
+/* Asegurarse de que los artículos en la cuadrícula no estén demasiado juntos */
+.menu-category {
+    margin: 30px 0;
+}
+
+.menu-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.item-footer .order-btn {
+    width: 100%;
+    max-width: 150px;
+    padding: 10px;
+}
+
+/* Ajustar espaciado del contenedor principal */
+.main {
+    padding: 40px 20px; /* Espacio superior e inferior */
+    max-width: 1200px;
+    margin: 0 auto;
 }
