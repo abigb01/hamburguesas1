@@ -83,7 +83,7 @@
         </div>
     </section>
 
-  <section id="contacto" class="contact-section">
+ <section id="contacto" class="contact-section">
     <div class="container">
         <h2>Contacto</h2>
         <div class="contact-grid">
@@ -96,10 +96,10 @@
             <div class="contact-form">
                 <h3>Envíanos un mensaje</h3>
                 <!-- Formulario integrado con Formspree -->
-                <form id="contact-form" action="https://formspree.io/f/mgvyeqzv" method="POST" onsubmit="clearForm()">
-                    <input type="text" name="nombre" placeholder="Nombre" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                    <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+                <form id="contactForm" action="https://formspree.io/f/mgvyeqzv" method="POST" onsubmit="clearForm()">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                    <textarea name="mensaje" id="mensaje" placeholder="Tu mensaje" required></textarea>
                     <button type="submit" class="btn">Enviar</button>
                 </form>
             </div>
@@ -107,15 +107,16 @@
     </div>
 </section>
 
-<!-- Agregar el siguiente script al final del archivo o en la etiqueta <head> -->
 <script>
+    // Función para limpiar el formulario
     function clearForm() {
-        // Limpiar los campos del formulario
-        document.getElementById('contact-form').reset(); // Resetea el formulario al estado vacío
+        // Esperamos 1 segundo antes de limpiar para asegurar que los datos se envíen correctamente.
+        setTimeout(function() {
+            document.getElementById('contactForm').reset();
+        }, 1000); // 1000 milisegundos = 1 segundo
     }
 </script>
-
-    <footer>
+   <footer>
         <div class="container">
             <p>&copy; 2025 BurgerMaster. Todos los derechos reservados.</p>
             <div class="social-links">
