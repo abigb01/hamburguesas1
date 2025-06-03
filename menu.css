@@ -1,4 +1,4 @@
-/* ===== RESET DE ESTILOS ===== */
+/* ===== ESTILOS GENERALES ===== */
 * {
     margin: 0;
     padding: 0;
@@ -6,19 +6,19 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* ===== VARIABLES DE COLOR ===== */
-:root {
-    --primary-color: #ff6b6b; /* Color principal */
-    --secondary-color: #333;  /* Color secundario */
-    --background-color: #f4f4f4; /* Fondo principal */
-    --hover-color: #e63946;  /* Color al pasar el cursor */
-}
-
-/* ===== ESTILOS GENERALES ===== */
 body {
     background-color: var(--background-color);
     color: #333;
     font-size: 16px;
+    margin-top: 70px; /* Para evitar que el contenido se esconda bajo la barra */
+}
+
+/* ===== VARIABLES DE COLOR ===== */
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #333;
+    --background-color: #f4f4f4;
+    --hover-color: #e63946;
 }
 
 /* ===== ESTILOS PARA LA BARRA DE NAVEGACIÓN ===== */
@@ -28,7 +28,8 @@ body {
     position: sticky;
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 1000; /* Aseguramos que la barra se quede por encima */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para que se vea flotante */
 }
 
 .navbar .container {
@@ -93,7 +94,7 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos para los items del carrito */
+/* ESTILOS PARA LOS ITEMS DEL CARRITO */
 .cart-item {
     display: flex;
     justify-content: space-between;
