@@ -342,3 +342,229 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+Aquí tienes el código JavaScript completo para manejar la interacción del modal de pago, junto con algunos ajustes finales al CSS:
+
+```javascript
+// Selección de elementos del DOM
+const orderButtons = document.querySelectorAll('.order-btn');
+const paymentModal = document.querySelector('.payment-options');
+const closeButton = document.querySelector('.close-btn');
+const continueShoppingBtn = document.querySelector('.continue-shopping');
+const proceedPaymentBtn = document.querySelector('.proceed-payment');
+const paymentMethods = document.querySelectorAll('.payment-method');
+
+// Variable para almacenar el método de pago seleccionado
+let selectedPaymentMethod = null;
+
+// Mostrar modal al hacer clic en cualquier botón de ordenar
+orderButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        paymentModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Evitar scroll del fondo
+    });
+});
+
+// Cerrar modal
+closeButton.addEventListener('click', () => {
+    closeModal();
+});
+
+continueShoppingBtn.addEventListener('click', () => {
+    closeModal();
+});
+
+// Función para cerrar el modal
+function closeModal() {
+    paymentModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    resetPaymentMethods();
+}
+
+// Selección de método de pago
+paymentMethods.forEach(method => {
+    method.addEventListener('click', () => {
+        // Remover selección previa
+        paymentMethods.forEach(m => {
+            m.classList.remove('selected', 'active');
+        });
+        
+        // Añadir selección actual
+        method.classList.add('selected', 'active');
+        selectedPaymentMethod = method.dataset.method;
+        
+        // Activar botón de proceder al pago
+        proceedPaymentBtn.disabled = false;
+        proceedPaymentBtn.style.opacity = '1';
+        proceedPaymentBtn.style.cursor = 'pointer';
+    });
+});
+
+// Procesar pago
+proceedPaymentBtn.addEventListener('click', () => {
+    if (!selectedPaymentMethod) return;
+    
+    // Animación de carga
+    proceedPaymentBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Procesando...';
+    proceedPaymentBtn.style.background = '#ccc';
+    
+    // Simular procesamiento de pago
+    setTimeout(() => {
+        if (selectedPaymentMethod === 'card') {
+            alert('¡Pago con tarjeta procesado con éxito! Redirigiendo...');
+        } else {
+            alert('¡Pedido registrado para pago en efectivo! Mostrando detalles...');
+        }
+        closeModal();
+        resetProceedButton();
+    }, 2000);
+});
+
+// Resetear botón de proceder
+function resetProceedButton() {
+    proceedPaymentBtn.innerHTML = '<i class="fas fa-arrow-right"></i> Continuar con el pago';
+    proceedPaymentBtn.style.background = 'var(--primary-color)';
+}
+
+// Resetear métodos de pago
+function resetPaymentMethods() {
+    paymentMethods.forEach(m => {
+        m.classList.remove('selected', 'active');
+    });
+    selectedPaymentMethod = null;
+    proceedPaymentBtn.disabled = true;
+    proceedPaymentBtn.style.opacity = '0.7';
+    proceedPaymentBtn.style.cursor = 'not-allowed';
+}
+
+// Cerrar modal al hacer clic fuera del contenido
+paymentModal.addEventListener('click', (e) => {
+    if (e.target === paymentModal) {
+        closeModal();
+    }
+});
+
+// Inicializar botón de proceder desactivado
+resetPaymentMethods();
+```
+
+## CSS Adicional para los efectos JavaScript:
+
+```css
+/* Añadir al final de tu CSS existente */
+
+/* Efecto de carga */
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estado inicial del botón de proceder */
+.proceed-payment:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background-color: #ccc;
+    border-color: #ccc;
+}
+
+/* Efecto de pulso para llamar la atención */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.payment-method.selected {
+    animation: pulse 0.5s ease;
+}
+
+/* Íconos de métodos de pago */
+.method-icon .fa-credit-card {
+    color: #4a6bff;
+}
+
+.method-icon .fa-money-bill-wave {
+    color: #4ab866;
+}
+
+.credit-card .method-icon .fa-credit-card,
+.cash-payment .method-icon .fa-money-bill-wave {
+    color: white;
+}
+```
+
+## HTML de ejemplo para la estructura del modal:
+
+```html
+<div class="payment-options">
+    <div class="payment-container">
+        <button class="close-btn">&times;</button>
+        
+        <div class="payment-header">
+            <h3>Método de Pago</h3>
+            <p>Selecciona cómo deseas pagar tu pedido</p>
+        </div>
+        
+        <div class="payment-methods">
+            <div class="payment-method credit-card" data-method="card">
+                <div class="method-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <div class="method-details">
+                    <h4>Tarjeta de Crédito/Débito</h4>
+                    <p>Pago seguro con tarjeta</p>
+                </div>
+            </div>
+            
+            <div class="payment-method cash-payment" data-method="cash">
+                <div class="method-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <div class="method-details">
+                    <h4>Pago en Efectivo</h4>
+                    <p>Paga al recibir tu pedido</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="payment-actions">
+            <button class="action-btn continue-shopping">
+                <i class="fas fa-arrow-left"></i> Seguir comprando
+            </button>
+            <button class="action-btn proceed-payment" disabled>
+                <i class="fas fa-arrow-right"></i> Continuar con el pago
+            </button>
+        </div>
+    </div>
+</div>
+```
+
+## Características implementadas:
+
+1. **Interacción completa del modal**:
+   - Abre al hacer clic en cualquier botón "Ordenar"
+   - Cierra al hacer clic en la X, fuera del modal o en "Seguir comprando"
+
+2. **Selección de método de pago**:
+   - Efectos visuales al seleccionar tarjeta o efectivo
+   - Validación para evitar pagos sin método seleccionado
+
+3. **Proceso de pago simulado**:
+   - Animación de carga durante el procesamiento
+   - Mensajes de confirmación diferentes para cada método
+
+4. **Efectos visuales mejorados**:
+   - Animación de pulso al seleccionar método
+   - Spinner de carga durante el procesamiento
+   - Transiciones suaves en todos los elementos
+
+Para que funcione completamente, necesitarás incluir Font Awesome para los íconos en el `<head>` de tu HTML:
+```html
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+```
+
+Este sistema proporciona una experiencia de usuario completa y atractiva para el proceso de pago, con retroalimentación visual clara en cada paso.
