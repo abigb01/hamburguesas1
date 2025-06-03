@@ -83,7 +83,7 @@
         </div>
     </section>
 
-    <section id="contacto" class="contact-section">
+  <section id="contacto" class="contact-section">
     <div class="container">
         <h2>Contacto</h2>
         <div class="contact-grid">
@@ -96,7 +96,7 @@
             <div class="contact-form">
                 <h3>Envíanos un mensaje</h3>
                 <!-- Formulario integrado con Formspree -->
-                <form action="https://formspree.io/f/mgvyeqzv" method="POST">
+                <form id="contact-form" action="https://formspree.io/f/mgvyeqzv" method="POST" onsubmit="clearForm()">
                     <input type="text" name="nombre" placeholder="Nombre" required>
                     <input type="email" name="email" placeholder="Email" required>
                     <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
@@ -105,7 +105,15 @@
             </div>
         </div>
     </div>
-    </section>
+</section>
+
+<!-- Agregar el siguiente script al final del archivo o en la etiqueta <head> -->
+<script>
+    function clearForm() {
+        // Limpiar los campos del formulario
+        document.getElementById('contact-form').reset(); // Resetea el formulario al estado vacío
+    }
+</script>
 
     <footer>
         <div class="container">
