@@ -83,7 +83,7 @@
         </div>
     </section>
 
- <section id="contacto" class="contact-section">
+<section id="contacto" class="contact-section">
     <div class="container">
         <h2>Contacto</h2>
         <div class="contact-grid">
@@ -96,7 +96,7 @@
             <div class="contact-form">
                 <h3>Envíanos un mensaje</h3>
                 <!-- Formulario integrado con Formspree -->
-                <form id="contactForm" action="https://formspree.io/f/mgvyeqzv" method="POST" onsubmit="clearForm()">
+                <form id="contactForm" action="https://formspree.io/f/mgvyeqzv" method="POST">
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
                     <input type="email" name="email" id="email" placeholder="Email" required>
                     <textarea name="mensaje" id="mensaje" placeholder="Tu mensaje" required></textarea>
@@ -108,14 +108,35 @@
 </section>
 
 <script>
-    // Función para limpiar el formulario
-    function clearForm() {
-        // Esperamos 1 segundo antes de limpiar para asegurar que los datos se envíen correctamente.
-        setTimeout(function() {
-            document.getElementById('contactForm').reset();
-        }, 1000); // 1000 milisegundos = 1 segundo
-    }
+    // Función para limpiar el formulario después de un envío exitoso
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        // Evita que el formulario se envíe de forma predeterminada (para gestionar el evento)
+        event.preventDefault();
+
+        // Crear un objeto FormData para enviar el formulario
+        var form = event.target;
+        var formData = new FormData(form);
+
+        // Enviar el formulario a través de AJAX (usando fetch)
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                // Si la respuesta es exitosa, limpiar el formulario
+                form.reset();
+                alert("¡Gracias! Tu mensaje ha sido enviado.");
+            } else {
+                alert("Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.");
+            }
+        })
+        .catch(error => {
+            alert("Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.");
+        });
+    });
 </script>
+
    <footer>
         <div class="container">
             <p>&copy; 2025 BurgerMaster. Todos los derechos reservados.</p>
