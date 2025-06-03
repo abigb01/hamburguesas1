@@ -1,3 +1,12 @@
+/* Estilos generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Hero Section */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                 url('https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
@@ -6,6 +15,7 @@
     height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
     color: white;
     margin-top: 80px;
@@ -26,8 +36,18 @@
 .hero .btn {
     font-size: 1.2rem;
     padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
+.hero .btn:hover {
+    background-color: #d62828;
+}
+
+/* Menu Section */
 .menu-section {
     padding: 80px 0;
     background-color: #f9f9f9;
@@ -66,7 +86,7 @@
 }
 
 .menu-item h3 {
-    margin: 20px 20px 10px;
+    margin: 20px;
     font-size: 1.5rem;
     color: var(--primary-color);
 }
@@ -91,6 +111,7 @@
     text-align: center;
 }
 
+/* About Section */
 .about-section {
     padding: 80px 0;
 }
@@ -120,6 +141,7 @@
     line-height: 1.6;
 }
 
+/* Contact Section */
 .contact-section {
     padding: 80px 0;
     background-color: #f9f9f9;
@@ -162,6 +184,7 @@
     resize: vertical;
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
     .hero h2 {
         font-size: 2.2rem;
@@ -185,5 +208,10 @@
     
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .hero .btn {
+        padding: 10px 25px;
+        font-size: 1.1rem;
     }
 }
