@@ -1,35 +1,39 @@
 /* ===== ESTILOS GENERALES ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Asegura que el padding y el borde no afecten al tamaño */
 }
 
 body {
-    background-color: var(--background-color);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
     color: #333;
-    font-size: 16px;
-    margin-top: 70px; /* Para evitar que el contenido se esconda bajo la barra */
 }
 
-/* ===== VARIABLES DE COLOR ===== */
-:root {
-    --primary-color: #ff6b6b;
-    --secondary-color: #333;
-    --background-color: #f4f4f4;
-    --hover-color: #e63946;
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* ===== ESTILOS PARA LA BARRA DE NAVEGACIÓN ===== */
+
 .navbar {
-    background-color: var(--secondary-color);
-    padding: 15px 20px;
-    position: sticky;
+    background-color: #333;
+    padding: 15px 0;
+    position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000; /* Aseguramos que la barra se quede por encima */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para que se vea flotante */
+    z-index: 1000;
 }
 
 .navbar .container {
@@ -39,43 +43,35 @@ body {
 }
 
 .navbar .logo {
-    color: #fff;
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .nav-links {
-    list-style-type: none;
+    list-style: none;
     display: flex;
     gap: 20px;
 }
 
-.nav-links li {
-    margin-left: 20px;
+.nav-links li a {
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    text-transform: uppercase;
-    padding: 10px;
-    display: block;
-    transition: all 0.3s ease;
-}
-
-.nav-links a:hover {
-    background-color: #555;
-    border-radius: 5px;
+.nav-links li a:hover {
+    color: #ff6b6b;
 }
 
 /* ===== ESTILOS PARA EL CARRITO ===== */
+
 .cart-counter {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: var(--primary-color);
+    background: var(--secondary-color);
     color: white;
     padding: 12px 20px;
     border-radius: 30px;
@@ -94,54 +90,102 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* ESTILOS PARA LOS ITEMS DEL CARRITO */
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #eee;
+/* ===== ESTILOS PARA EL MENÚ ===== */
+
+.full-menu {
+    padding: 80px 20px 20px; /* Espacio superior para la barra de navegación */
+}
+
+/* Cuadrícula de elementos del menú */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ajuste automático de columnas */
+    gap: 20px; /* Espacio entre los elementos */
+}
+
+.menu-item {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.05); /* Efecto hover */
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 2px solid #eee;
 }
 
 .item-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    padding: 15px;
+    text-align: center;
 }
 
 .item-info h4 {
     margin: 0;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .item-info p {
-    margin: 5px 0 0;
+    margin: 10px 0 0;
     font-size: 0.9rem;
-    color: #666;
+    color: #777;
 }
 
-.item-actions {
+.item-footer {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 15px;
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
 }
 
-.remove-item {
-    background: none;
-    border: none;
-    color: #ff6b6b;
+.price {
     font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.order-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    padding: 5px;
-    transition: color 0.3s ease;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    max-width: 150px;
+    width: 100%; /* Hace que el botón ocupe el 100% de su contenedor */
 }
 
-.remove-item:hover {
-    color: var(--hover-color);
+.order-btn:hover {
+    background-color: var(--primary-color);
 }
 
-/* ===== ESTILOS PARA LOS MÉTODOS DE PAGO ===== */
+/* ===== ESTILOS PARA LAS CATEGORÍAS DEL MENÚ ===== */
+
+.menu-category {
+    margin-bottom: 30px; /* Espacio entre categorías */
+}
+
+.menu-category h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* ===== ESTILOS PARA LOS METODOS DE PAGO ===== */
+
 .payment-section {
     margin: 20px 0;
 }
@@ -171,7 +215,7 @@ body {
 }
 
 .payment-option input:checked + .payment-card {
-    border-color: var(--primary-color);
+    border-color: var(--secondary-color);
     background-color: rgba(255, 107, 107, 0.1);
 }
 
@@ -185,82 +229,53 @@ body {
     color: #666;
     font-size: 0.8rem;
 }
-/* Ajustar las imágenes dentro de las tarjetas */
-.menu-item img {
-    width: 100%;  /* Ocupa todo el ancho del contenedor */
-    height: 200px; /* Fija la altura para evitar desajustes */
-    object-fit: cover; /* Mantiene la relación de aspecto */
-    border-radius: 8px; /* Borde redondeado para las imágenes */
+
+/* ===== ESTILOS PARA EL FORMULARIO DE PAGO ===== */
+
+.payment-form {
+    margin-top: 20px;
 }
 
-/* Estilo de los botones de compra */
-.order-btn {
-    background-color: var(--secondary-color);
-    color: white;
-    border: none;
-    padding: 12px 25px; /* Ajuste en el tamaño del padding */
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem; /* Tamaño de fuente adecuado */
-    transition: background-color 0.3s ease;
-    width: 100%;  /* Hace que el botón ocupe todo el ancho del contenedor */
-    box-sizing: border-box; /* Asegura que el padding no desborde */
-}
-
-.order-btn:hover {
-    background-color: var(--primary-color);
-}
-
-/* Ajustar el espaciado entre los elementos */
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px; /* Ajusta el espacio entre las tarjetas */
-}
-
-/* Margen entre los elementos */
-.menu-item {
-    margin-bottom: 20px; /* Agrega margen en la parte inferior para no tener todo pegado */
-}
-
-/* Ajustar el espaciado dentro de la tarjeta */
-.item-info {
-    margin-top: 10px;
-}
-
-/* Asegurarse de que los artículos en la cuadrícula no estén demasiado juntos */
-.menu-category {
-    margin: 30px 0;
-}
-
-.menu-category h3 {
-    font-size: 1.5rem;
+.payment-form .form-group {
     margin-bottom: 15px;
-    font-weight: bold;
 }
 
-.item-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
+.payment-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
 }
 
-.price {
-    font-weight: bold;
-    font-size: 1rem;
-}
-
-.item-footer .order-btn {
+.payment-form input {
     width: 100%;
-    max-width: 150px;
     padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s ease;
 }
 
-/* Ajustar espaciado del contenedor principal */
-.main {
-    padding: 40px 20px; /* Espacio superior e inferior */
-    max-width: 1200px;
-    margin: 0 auto;
+.payment-form input:focus {
+    border-color: var(--primary-color);
+}
+
+/* Estilos para la opción de ticket */
+.receipt-option {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.receipt-option label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.receipt-option input {
+    margin-right: 10px;
 }
