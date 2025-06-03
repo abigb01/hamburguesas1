@@ -7,25 +7,12 @@
     padding: 0;
 }
 
-:root {
-    --primary-color: #ff6b6b;
-    --primary-hover: #e63946;
-    --secondary-color: #4a4e69;
-    --background: #f7f7f7;
-    --text-color: #333;
-    --light-gray: #f9f9f9;
-    --border-color: #eee;
-    --white: #ffffff;
-    --success-color: #2ecc71;
-    --info-color: #3498db;
-}
-
 body {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--background);
-    color: var(--text-color);
+    background-color: #f7f7f7;
+    color: #333;
     line-height: 1.6;
 }
 
@@ -36,9 +23,9 @@ a {
 
 /* Barra de Navegación */
 .navbar {
-    background-color: var(--secondary-color);
+    background-color: #333;
     padding: 15px 0;
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -55,31 +42,28 @@ a {
 }
 
 .navbar .logo {
-    color: var(--white);
+    color: white;
     font-size: 1.5rem;
     font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 20px;
 }
 
 .nav-links li a {
-    color: var(--white);
+    color: white;
     font-weight: 500;
     font-size: 1rem;
     transition: color 0.3s ease;
-    position: relative;
     padding: 5px 0;
+    position: relative;
 }
 
 .nav-links li a:hover {
-    color: var(--primary-color);
+    color: #ff6b6b;
 }
 
 .nav-links li a::after {
@@ -89,7 +73,7 @@ a {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--primary-color);
+    background-color: #ff6b6b;
     transition: width 0.3s ease;
 }
 
@@ -111,54 +95,47 @@ a {
 /* Cuadrícula del Menú */
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
 }
 
 /* Estilo de los Elementos del Menú */
 .menu-item {
-    background: var(--white);
-    border-radius: 12px;
+    background: #fff;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .menu-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .menu-item img {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    object-position: center;
 }
 
 /* Contenido de cada item */
 .item-info {
-    padding: 20px;
+    padding: 15px;
     text-align: center;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
 }
 
 .item-info h4 {
     margin: 0 0 10px;
     font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--secondary-color);
+    font-weight: bold;
+    color: #333;
 }
 
 .item-info p {
-    margin: 0 0 15px;
-    font-size: 0.95rem;
+    margin: 10px 0;
+    font-size: 0.9rem;
     color: #777;
-    flex-grow: 1;
 }
 
 /* Pie del Item (Precio y Botón) */
@@ -166,44 +143,60 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    background-color: var(--light-gray);
-    border-top: 1px solid var(--border-color);
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
 }
 
 .price {
     font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--primary-color);
+    font-weight: bold;
+    color: #ff6b6b;
 }
 
 .order-btn {
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: #ff6b6b;
+    color: white;
     border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
+    padding: 12px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: bold;
     font-size: 1rem;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .order-btn:hover {
-    background-color: var(--primary-hover);
+    background-color: #e63946;
     transform: translateY(-2px);
 }
 
-.order-btn:active {
-    transform: translateY(0);
+/* Categoría del Menú */
+.menu-category {
+    margin-bottom: 30px;
 }
 
-/* Opciones de pago */
-.payment-options {
+.menu-category h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.menu-category h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #ff6b6b;
+}
+
+/* Modal de Pago (Versión simple como en el original) */
+.payment-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -216,161 +209,116 @@ a {
     align-items: center;
 }
 
-.payment-container {
-    background-color: var(--white);
-    border-radius: 12px;
-    padding: 30px;
+.payment-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
     width: 90%;
-    max-width: 500px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 0.3s ease;
+    max-width: 400px;
+    text-align: center;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.payment-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.payment-header h3 {
-    font-size: 1.5rem;
-    color: var(--secondary-color);
-}
-
-.close-btn {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #777;
-    transition: color 0.3s ease;
-}
-
-.close-btn:hover {
-    color: var(--primary-hover);
-}
-
-.payment-buttons {
+.payment-options {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 25px;
+    gap: 10px;
+    margin: 20px 0;
 }
 
 .payment-btn {
-    padding: 15px;
-    border-radius: 8px;
+    padding: 12px;
     border: none;
-    font-size: 1rem;
-    font-weight: 600;
+    border-radius: 5px;
+    font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.payment-btn i {
-    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
 }
 
 .card-btn {
-    background-color: var(--info-color);
-    color: var(--white);
+    background-color: #4a6bff;
+    color: white;
 }
 
 .card-btn:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
+    background-color: #3a5bef;
 }
 
 .cash-btn {
-    background-color: var(--success-color);
-    color: var(--white);
+    background-color: #4ab866;
+    color: white;
 }
 
 .cash-btn:hover {
-    background-color: #27ae60;
-    transform: translateY(-2px);
+    background-color: #3aa756;
 }
 
-/* Categoría del Menú */
-.menu-category {
-    margin-bottom: 40px;
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
-.menu-category h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--secondary-color);
-    position: relative;
-    padding-bottom: 10px;
+.continue-btn, .close-modal {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-.menu-category h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background-color: var(--primary-color);
+.continue-btn {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.continue-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.close-modal {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.close-modal:hover {
+    background-color: #e63946;
 }
 
 /* Estilos Responsivos */
 @media screen and (max-width: 768px) {
-    .navbar {
-        padding: 12px 0;
-    }
-    
     .nav-links {
-        gap: 15px;
+        display: none;
     }
-    
-    .full-menu {
-        padding: 90px 15px 30px;
+
+    .navbar .logo {
+        font-size: 1.2rem;
     }
-    
+
     .menu-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .payment-content {
+        padding: 15px;
     }
 }
 
-@media screen and (max-width: 576px) {
-    .navbar .container {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .nav-links {
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .menu-item img {
-        height: 200px;
-    }
-    
+@media screen and (max-width: 480px) {
     .item-footer {
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
     }
     
     .order-btn {
         width: 100%;
     }
     
-    .payment-buttons {
+    .modal-actions {
         flex-direction: column;
+        gap: 10px;
+    }
+    
+    .continue-btn, .close-modal {
+        width: 100%;
     }
 }
