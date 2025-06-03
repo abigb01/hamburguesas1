@@ -97,15 +97,22 @@
                 <h3>Envíanos un mensaje</h3>
                 <!-- Formulario integrado con Formspree -->
                 <form action="https://formspree.io/f/mgvyeqzv" method="POST">
+                    <!-- Campos del formulario -->
                     <input type="text" name="nombre" placeholder="Nombre" required>
                     <input type="email" name="email" placeholder="Email" required>
                     <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+
+                    <!-- Campos adicionales para configurar Formspree -->
+                    <input type="hidden" name="_next" value="http://tusitio.com/gracias">
+                    <input type="hidden" name="_subject" value="Nuevo mensaje desde el formulario de contacto">
+
                     <button type="submit" class="btn">Enviar</button>
                 </form>
             </div>
         </div>
     </div>
 </section>
+
 
    <footer>
         <div class="container">
