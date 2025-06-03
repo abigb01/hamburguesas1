@@ -1,5 +1,4 @@
-/* ===== ESTILOS GENERALES ===== */
-
+/* Estilos Generales */
 *,
 *::before,
 *::after {
@@ -19,14 +18,7 @@ a {
     color: inherit;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* ===== ESTILOS PARA LA BARRA DE NAVEGACIÓN ===== */
-
+/* Barra de Navegación */
 .navbar {
     background-color: #333;
     padding: 15px 0;
@@ -65,20 +57,25 @@ a {
     color: #ff6b6b;
 }
 
-/* ===== ESTILOS PARA EL MENÚ ===== */
-
+/* Menú Completo */
 .full-menu {
     padding: 80px 20px 20px; /* Espacio superior para la barra de navegación */
 }
 
-/* Cuadrícula de elementos del menú */
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Columnas responsivas */
-    gap: 20px; /* Espacio entre los elementos */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Estilo para cada elemento del menú */
+/* Cuadrícula del Menú */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ajuste automático */
+    gap: 20px;
+}
+
+/* Estilo de los Elementos del Menú */
 .menu-item {
     background: #fff;
     border-radius: 10px;
@@ -87,19 +84,17 @@ a {
     transition: transform 0.3s ease;
 }
 
-/* Efecto hover para el item */
 .menu-item:hover {
     transform: scale(1.05); /* Efecto hover */
 }
 
 .menu-item img {
     width: 100%;
-    height: 200px; /* Ajusta la altura de las imágenes */
-    object-fit: cover; /* Mantiene la imagen dentro del contenedor sin distorsionar */
-    border-bottom: 2px solid #eee;
+    height: 250px; /* Tamaño fijo para todas las imágenes */
+    object-fit: cover; /* No distorsiona la imagen */
 }
 
-/* Contenedor de información del producto */
+/* Contenido de cada item */
 .item-info {
     padding: 15px;
     text-align: center;
@@ -107,17 +102,17 @@ a {
 
 .item-info h4 {
     margin: 0;
-    font-size: 1.3rem; /* Un poco más grande */
+    font-size: 1.3rem;
     font-weight: bold;
 }
 
 .item-info p {
-    margin: 10px 0 0;
+    margin: 10px 0;
     font-size: 0.9rem;
     color: #777;
 }
 
-/* Mejor organización del precio y botón */
+/* Pie del Item (Precio y Botón) */
 .item-footer {
     display: flex;
     justify-content: space-between;
@@ -128,13 +123,13 @@ a {
 }
 
 .price {
-    font-size: 1.3rem; /* Aumenta el tamaño del precio */
+    font-size: 1.3rem;
     font-weight: bold;
     color: #333;
 }
 
 .order-btn {
-    background-color: var(--secondary-color);
+    background-color: #ff6b6b;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -149,11 +144,10 @@ a {
 }
 
 .order-btn:hover {
-    background-color: var(--primary-color);
+    background-color: #e63946;
 }
 
-/* ===== ESTILOS PARA LA CATEGORÍA DEL MENÚ ===== */
-
+/* Categoría del Menú */
 .menu-category {
     margin-bottom: 30px; /* Espacio entre categorías */
 }
@@ -165,45 +159,17 @@ a {
     color: #333;
 }
 
-/* ===== ESTILOS PARA LOS BOTONES DE PAGO ===== */
+/* Estilos Responsivos */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* Esconde los links en pantallas pequeñas */
+    }
 
-.payment-methods {
-    display: flex;
-    gap: 15px;
-    margin-top: 15px;
-}
+    .navbar .logo {
+        font-size: 1.2rem;
+    }
 
-.payment-option {
-    flex: 1;
-    position: relative;
-}
-
-.payment-option input {
-    display: none;
-}
-
-.payment-card {
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    height: 100%; /* Asegura que todas las tarjetas de pago tengan el mismo tamaño */
-}
-
-.payment-option input:checked + .payment-card {
-    border-color: var(--secondary-color);
-    background-color: rgba(255, 107, 107, 0.1);
-}
-
-.payment-card span {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.payment-card small {
-    color: #666;
-    font-size: 0.8rem;
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajuste en pantallas pequeñas */
+    }
 }
