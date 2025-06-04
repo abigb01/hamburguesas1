@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Completo - BurgerMaster</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="menu.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+   <nav class="navbar">
+    <div class="container">
+        <h1 class="logo">BurgerMaster</h1>
+        <button class="menu-btn">☰</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html" class="active">Menú</a></li>
+            <li><a href="index.html#acerca">Acerca de</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+        <div class="cart-counter" onclick="showCart()">🛒 0 | $0.00</div>
+    </div>
+</nav>
+    <main class="full-menu">
+        <div class="container">
+            <h2>Menú Completo</h2>
+            
+            <!-- Hamburguesas -->
+            <section class="menu-category">
+                <h3>Hamburguesas</h3>
+                <div class="menu-grid">
+                    <article class="menu-item">
+                        <img src="clasica.jpg" alt="Clásica">
+                        <div class="item-info">
+                            <h4>Clásica</h4>
+                            <p>Carne 100% res, queso cheddar, lechuga, tomate y salsa especial</p>
+                            <div class="item-footer">
+                                <span class="price">$175 mx</span>
+                                <button class="btn order-btn">Ordenar</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-item">
+                        <img src="bbq.jpg" alt="BBQ">
+                        <div class="item-info">
+                            <h4>BBQ</h4>
+                            <p>Carne angus, bacon crujiente, cebolla caramelizada y salsa BBQ</p>
+                            <div class="item-footer">
+                                <span class="price">$215 mx</span>
+                                <button class="btn order-btn">Ordenar</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-item">
+                        <img src="picante.jpg" alt="Picante">
+                        <div class="item-info">
+                            <h4>Picante</h4>
+                            <p>Doble carne, jalapeños, queso pepper jack y salsa picante</p>
+                            <div class="item-footer">
+                                <span class="price">$195 mx</span>
+                                <button class="btn order-btn">Ordenar</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-item">
+                        <img src="vegetariana.jpg" alt="Vegetariana">
+                        <div class="item-info">
+                            <h4>Vegetariana</h4>
+                            <p>Portobello, queso de cabra, espinaca y mayonesa de ajo</p>
+                            <div class="item-footer">
+                                <span class="price">$200 mx</span>
+                                <button class="btn order-btn">Ordenar</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-item">
+                        <img src="bloble master.jpg" alt="Doble Master">
+                        <div class="item-info">
+                            <h4>Doble Master</h4>
+                            <p>Doble carne, doble queso, tocino, huevo y salsa especial</p>
+                            <div class="item-footer">
+                                <span class="price">$170 mx</span>
+                                <button class="btn order-btn">Ordenar</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-item">
+                        <img src="pollito.jpg" alt="Pollo Crujiente">
+                        <div class="item-info">
+                            <h4>Pollo Crujiente</h4>
+                            <p>Pechuga empanizada, lechuga, tomate y mayonesa de chipotle</p>
+                            <div class="item-footer">
+                                <span class="price">$235 mx</span>
+                                <button class="btn order-btn">Ordenar</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Bebidas -->
+            <section class="menu-category">
+                <h3>Bebidas</h3>
+                <div class="menu-grid">
+                    <article class="menu-item">
+                        <img src="refrescos.jpg" alt="Refrescos">
+                        <div class="item-info">
+                            <h4>Refrescos</h4>
+                            <p>Coca-Cola, Sprite, Fanta, Dr. Pepper (500ml)</p>
+                            <div class="item-footer">
+                                <span class="price">$50 mx</span>
+                                <button class="btn order-btn">Ordenar</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-item">
+                        <img src="cervezas.jpg" alt="Cervezas">
+                        <div class="item-info">
+                            <h4>Cervezas</h4>
+                            <p>Variedad de cervezas artesanales e importadas</p>
+                            <div class="item-footer">
+                                <span class="price">$85 mx</span>
+                                <button class="btn order-btn">Ordenar</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-item">
+                        <img src="maltedas.jpg" alt="Malteadas">
+                        <div class="item-info">
+                            <h4>Malteadas</h4>
+                            <p>Vainilla, chocolate, fresa o cookies & cream</p>
+                            <div class="item-footer">
+                                <span class="price">$85 mx</span>
+                                <button class="btn order-btn">Ordenar</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-item">
+                        <img src="aguas.jpg" alt="Agua">
+                        <div class="item-info">
+                            <h4>Agua Mineral</h4>
+                            <p>Agua purificada con o sin gas (750ml)</p>
+                            <div class="item-footer">
+                                <span class="price">$45 mx</span>
+                                <button class="btn order-btn">Ordenar</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-item">
+                        <img src="jugos.jpg" alt="Jugos">
+                        <div class="item-info">
+                            <h4>Jugos Naturales</h4>
+                            <p>Naranja, piña, zanahoria o combinados (500ml)</p>
+                            <div class="item-footer">
+                                <span class="price">$75 mx</span>
+                                <button class="btn order-btn">Ordenar</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-item">
+                        <img src="cafes.jpg" alt="Café">
+                        <div class="item-info">
+                            <h4>Café</h4>
+                            <p>Americano, espresso, capuccino o latte</p>
+                            <div class="item-footer">
+                                <span class="price">$80 mx</span>
+                                <button class="btn order-btn">Ordenar</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Acompañamientos -->
+            <section class="menu-category">
+                <h3>Acompañamientos</h3>
+                <div class="menu-grid">
+                    <article class="menu-item">
+                        <img src="papitasf.jpg" alt="Papas fritas">
+                        <div class="item-info">
+                            <h4>Papas Fritas</h4>
+                            <p>Papas doradas con sal marina y especias</p>
+                            <div class="item-footer">
+                                <span class="price">$70 mx</span>
+                                <button class="btn order-btn">Ordenar</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-item">
+                        <img src="arosdecebolla.jpg" alt="Aros de cebolla">
+                        <div class="item-info">
+                            <h4>Aros de Cebolla</h4>
+                            <p>Crujientes aros de cebolla empanizados</p>
+                            <div class="item-footer">
+                                <span class="price">$60 mx</span>
+                                <button class="btn order-btn">Ordenar</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-item">
+                        <img src="alitas.jpg" alt="Alitas">
+                        <div class="item-info">
+                            <h4>Alitas Buffalo</h4>
+                            <p>6 piezas con salsa buffalo y aderezo ranch</p>
+                            <div class="item-footer">
+                                <span class="price">$135 mx</span>
+                                <button class="btn order-btn">Ordenar</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+   <!-- En el head o antes del cierre del body -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</body>
+</html>
